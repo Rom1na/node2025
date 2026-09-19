@@ -1,11 +1,13 @@
 export async function get(param) {
+     
       
     try{
-      const response = await fetch(`https://fakestoreapi.com/${param}`);
-
+      const response = await fetch(`https://fakestoreapi.com/products/${param}`);
+        
 
         // Leer la respuesta como texto primero
         const text = await response.text();
+        
 
         // Verificar si la respuesta está vacía
         if (!text) {
@@ -33,11 +35,29 @@ export async function get(param) {
             
         const producto = data;
 
+        console.log('<---------------------------------------FORMATO CONSOLA------------------------------>')
+
         console.log(`id : ${producto.id}`);
         console.log(`Nombre : ${producto.title}`);
         console.log(`Precio : ${producto.price}`);
         console.log(`Descripción : ${producto.description}`);
         console.log(`Categoria : ${producto.category}`);
+
+         console.log('<----------------------------------------------------------------------------------->\n\n')
+        
+        
+        
+        const producto2 ={id :producto.id,Nombre : producto.title,Precio : producto.price,Descripcion :producto.description,Categoria : producto.category}
+
+
+
+
+        console.log('<---------------------------------------FORMATO DATO------------------------------>')
+
+        console.log(producto2);
+
+
+         console.log('<-------------------------------------------------------------------------------->')
         
 
     }else{
@@ -94,7 +114,7 @@ export function del(param) {
         return;
     }
 
-    fetch(`https://fakestoreapi.com/${param}`, {
+    fetch(`https://fakestoreapi.com/products/${param}`, {
         method: 'DELETE'
     })
     .then(response => response.json())

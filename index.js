@@ -3,6 +3,7 @@ import { get,post,del} from "./metodos.js";
 const[metodo,param]= process.argv.slice(2);
 const opcion = metodo.toUpperCase();
 
+
 switch (opcion){
     case "GET":
         get(param);
