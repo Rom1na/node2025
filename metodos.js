@@ -103,7 +103,8 @@ export function post(params){
     
     fetch('https://fakestoreapi.com/products', config)
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
 
 };
 
