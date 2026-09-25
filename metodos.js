@@ -2,7 +2,7 @@ export async function get(param) {
      
       
     try{
-      const response = await fetch(`https://fakestoreapi.com/products/${param}`);
+      const response = await fetch(`https://fakestoreapi.com/${param}`);
         
 
         // Leer la respuesta como texto primero
@@ -115,11 +115,12 @@ export function del(param) {
         return;
     }
 
-    fetch(`https://fakestoreapi.com/products/${param}`, {
+    fetch(`https://fakestoreapi.com/${param}`, {
         method: 'DELETE'
     })
     .then(response => response.json())
     .then(data => {
+        console.log(data)
         if (data === null) {
             console.log('El producto indicado no existe, por favor intentar nuevamente con un id válido.');
         } else {
